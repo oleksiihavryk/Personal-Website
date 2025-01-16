@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite", "OleksiiHavryk.PersonalWebsite\OleksiiHavryk.PersonalWebsite.csproj", "{23BD6C42-6201-4189-8517-7C29914F6D01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23BD6C42-6201-4189-8517-7C29914F6D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BD6C42-6201-4189-8517-7C29914F6D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BD6C42-6201-4189-8517-7C29914F6D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BD6C42-6201-4189-8517-7C29914F6D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
