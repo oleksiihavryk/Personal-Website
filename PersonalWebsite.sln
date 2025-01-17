@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite", "OleksiiHavryk.PersonalWebsite\OleksiiHavryk.PersonalWebsite.csproj", "{23BD6C42-6201-4189-8517-7C29914F6D01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite.Domain", "OleksiiHavryk.PersonalWebsite.Domain\OleksiiHavryk.PersonalWebsite.Domain.csproj", "{997FFA73-632A-4E2C-8CE1-CC5CA43E0A7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{23BD6C42-6201-4189-8517-7C29914F6D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23BD6C42-6201-4189-8517-7C29914F6D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23BD6C42-6201-4189-8517-7C29914F6D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997FFA73-632A-4E2C-8CE1-CC5CA43E0A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997FFA73-632A-4E2C-8CE1-CC5CA43E0A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997FFA73-632A-4E2C-8CE1-CC5CA43E0A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997FFA73-632A-4E2C-8CE1-CC5CA43E0A7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
