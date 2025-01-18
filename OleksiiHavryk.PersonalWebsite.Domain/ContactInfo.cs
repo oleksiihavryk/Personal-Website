@@ -5,12 +5,12 @@ namespace OleksiiHavryk.PersonalWebsite.Domain;
 /// </summary>
 public class ContactInfo
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.Empty;
     
-    public string Phone { get; set; }
-    public string Email { get; set; }
-    public string Telegram { get; set; }
-    public string LinkedIn { get; set; }
-    public string Github { get; set; }
-    public string Gitlab { get; set; }
-}
+    public string Phone { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Telegram { get; set; } = string.Empty;
+    public string LinkedIn { get; set; } = string.Empty;
+    public string Github { get; set; } = string.Empty;
+    public string Gitlab { get; set; } = string.Empty;
+} 
