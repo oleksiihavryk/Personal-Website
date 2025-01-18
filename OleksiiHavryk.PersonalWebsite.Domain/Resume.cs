@@ -7,8 +7,8 @@ public class Resume
 {
     public Guid Id { get; set; }
     
-    public string DisplayName { get; set; }
-    public string FileName { get; set; }
-    
-    public byte[] ResumeData { get; set; }
+    public string DisplayName { get; set; } = string.Empty;
+    public string FileName { get; set; } = string.Empty;
+
+    public byte[] ResumeData { get; set; } = [];
 }
