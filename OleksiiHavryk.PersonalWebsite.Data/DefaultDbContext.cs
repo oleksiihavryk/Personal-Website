@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OleksiiHavryk.PersonalWebsite.Data.EntityConfigurations;
 using OleksiiHavryk.PersonalWebsite.Domain;
 
 namespace OleksiiHavryk.PersonalWebsite.Data;
@@ -15,7 +16,14 @@ public class DefaultDbContext(
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        ConfigureEntities(modelBuilder);
+    }
+
+    private void ConfigureEntities(ModelBuilder modelBuilder)
+    {
+        var currentAssembly = typeof(DefaultDbContext).Assembly;
         
-        //TODO: Configure database tables and entities.
+        modelBuilder.ApplyConfigurationsFromAssembly(currentAssembly);
     }
 }
