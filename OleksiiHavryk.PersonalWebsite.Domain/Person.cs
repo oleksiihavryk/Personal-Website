@@ -10,7 +10,7 @@ public class Person
     public string Name { get; set; } = string.Empty;
     public string About { get; set; } = string.Empty;
 
-    public ContactInfo Contacts { get; set; } = null!;
+    public Contacts Contacts { get; set; } = null!;
     public Projects Projects { get; set; } = null!;
     public Resume Resume { get; set; } = null!;
 }
