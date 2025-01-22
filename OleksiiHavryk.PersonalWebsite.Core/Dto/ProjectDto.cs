@@ -1,5 +1,7 @@
 namespace OleksiiHavryk.PersonalWebsite.Core.Dto;
-
+/// <summary>
+///     DTO class for the Project class.
+/// </summary>
 public class ProjectDto
 {
     public string? Name { get; set; }

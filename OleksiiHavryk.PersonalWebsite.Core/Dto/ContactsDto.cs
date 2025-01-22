@@ -1,5 +1,8 @@
 namespace OleksiiHavryk.PersonalWebsite.Core.Dto;
 
+/// <summary>
+///     DTO class for the Contacts class.
+/// </summary>
 public class ContactsDto
 {
     public string? Phone { get; set; } 

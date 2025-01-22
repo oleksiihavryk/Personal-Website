@@ -1,5 +1,8 @@
 namespace OleksiiHavryk.PersonalWebsite.Core.Dto;
 
+/// <summary>
+///     DTO class for the Resume class.
+/// </summary>
 public class ResumeDto
 {
     public string? DisplayName { get; set; }

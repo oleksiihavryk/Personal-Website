@@ -1,5 +1,8 @@
 namespace OleksiiHavryk.PersonalWebsite.Core.Dto;
 
+/// <summary>
+///     DTO class for the Person class.
+/// </summary>
 public class PersonDto
 {
     public string? Name { get; set; }
