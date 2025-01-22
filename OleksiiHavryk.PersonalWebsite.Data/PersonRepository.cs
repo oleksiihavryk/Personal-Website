@@ -21,7 +21,6 @@ public class PersonRepository : IPersonRepository
     {
         Result<Person> result;
 
-
         try
         {
             var person = await _dbContext.Persons
