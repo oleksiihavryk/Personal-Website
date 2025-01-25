@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OleksiiHavryk.PersonalWebsite.Core;
 using OleksiiHavryk.PersonalWebsite.Data;
 
 namespace OleksiiHavryk.PersonalWebsite.Extensions;
@@ -16,6 +17,15 @@ public static class ServicesExtensions
         services.AddDbContext<DefaultDbContext>(opt => 
             opt.UseSqlServer(connectionString));
         
+        return services;
+    }
+
+    public static IServiceCollection AddPersonManager(
+        this IServiceCollection services)
+    {
+        services.AddScoped<IPersonRepository, PersonRepository>();
+        services.AddScoped<IPersonManager, PersonManager>();
+
         return services;
     }
 }
