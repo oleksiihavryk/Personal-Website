@@ -28,6 +28,79 @@ public class PersonManager : IPersonManager
         _personRepository = personRepository;
     }
 
+    public async Task SeedValueIfNotExistsAsync(PersonDto seed)
+    {
+        if (await CheckIfPersonExistsAsync())
+        {
+            _logger.LogInformation(
+                $"Person is already contained with identifier '{Identifier}', " +
+                $"seeding is terminated.");
+            return;
+        }
+        
+        var person = new Person
+        {
+            Id = Identifier,
+            About = seed.About ?? string.Empty,
+            Name = seed.Name ?? string.Empty
+        };
+
+        if (seed.Contacts is not null)
+        {
+            person.Contacts = new Contacts
+            {
+                PersonId = Identifier,
+                Email = seed.Contacts?.Email ?? string.Empty,
+                Phone = seed.Contacts?.Phone ?? string.Empty,
+                Telegram = seed.Contacts?.Telegram ?? string.Empty,
+                Github = seed.Contacts?.Github ?? string.Empty,
+                Gitlab = seed.Contacts?.Gitlab ?? string.Empty,
+                LinkedIn = seed.Contacts?.LinkedIn ?? string.Empty,
+            };
+        }
+
+        if (seed.Resume is not null)
+        {
+            person.Resume = new Resume
+            {
+                PersonId = Identifier,
+                DisplayName = seed.Resume?.DisplayName ?? string.Empty,
+                FileName = seed.Resume?.FileName ?? string.Empty,
+                Data = seed.Resume?.Data ?? [],
+            };
+        }
+
+        if (seed.Projects is not null)
+        {
+            person.Projects = new Projects
+            {
+                PersonId = Identifier,
+                ProjectsCollection = seed.Projects?
+                    .Projects?
+                    .Select(p => new Project
+                    {
+                        Name = p.Name ?? string.Empty,
+                        Description = p.Description ?? string.Empty,
+                        GithubUrl = p.GithubUrl ?? string.Empty,
+                        ImageUrl = p.ImageUrl ?? string.Empty,
+                        SiteUrl = p.SiteUrl,
+                        Show = p.Show ?? false
+                    })
+                    .ToList() ?? new List<Project>(),
+            };
+        }
+        
+        Result<Person> createOperation = await _personRepository
+            .CreateAsync(person);
+        
+        if (createOperation.IsFailure())
+        { 
+            throw new ApplicationException(
+                "Failed to create a person with seed.");
+        }
+        
+        _logger.LogInformation("Person is successfully seeded.");
+    }
     public async Task<Result<PersonDto>> GetAsync()
     {
         var operationResult = await _personRepository.GetAsync(Identifier);
@@ -98,4 +171,7 @@ public class PersonManager : IPersonManager
         return Result.Failure()
             .WithMessage(operationResult.Message);
     }
+    
+    private async Task<bool> CheckIfPersonExistsAsync()
+        => (await _personRepository.GetAsync(Identifier)).IsSuccess();
 }
