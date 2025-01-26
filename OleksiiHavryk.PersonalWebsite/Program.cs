@@ -19,7 +19,7 @@ app.UseRouting();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.UseExceptionHandler();
+    app.UseStatusCodePages();
 }
 
 app.UseMvcWithDefaultRoute();
