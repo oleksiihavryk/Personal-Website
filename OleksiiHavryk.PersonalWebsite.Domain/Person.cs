@@ -11,6 +11,6 @@ public class Person
     public string About { get; set; } = string.Empty;
 
     public Contacts Contacts { get; set; } = null!;
-    public Projects Projects { get; set; } = null!;
-    public Resume Resume { get; set; } = null!;
+    public Projects? Projects { get; set; }
+    public Resume? Resume { get; set; }
 }
