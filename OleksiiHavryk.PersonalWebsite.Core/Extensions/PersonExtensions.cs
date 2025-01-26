@@ -11,7 +11,7 @@ internal static class PersonExtensions
 {
     public static PersonDto ConvertToDto(this Person person)
     {
-        return new PersonDto()
+        var dto = new PersonDto()
         {
             Name = person.Name,
             About = person.About,
@@ -23,14 +23,22 @@ internal static class PersonExtensions
                 Gitlab = person.Contacts.Gitlab,
                 LinkedIn = person.Contacts.LinkedIn,
                 Telegram = person.Contacts.Telegram,
-            },
-            Resume = new ResumeDto()
+            }
+        };
+
+        if (person.Resume is not null)
+        {
+            dto.Resume = new ResumeDto()
             {
                 FileName = person.Resume.FileName,
                 DisplayName = person.Resume.DisplayName,
                 Data = person.Resume.Data,
-            },
-            Projects = new ProjectsDto()
+            };
+        }
+
+        if (person.Projects is not null)
+        {
+            dto.Projects = new ProjectsDto()
             {
                 Projects = person.Projects
                     .ProjectsCollection
@@ -44,8 +52,10 @@ internal static class PersonExtensions
                         Show = p.Show
                     })
                     .ToList()
-            }
-        };
+            };
+        }
+        
+        return dto;
     }
     public static void ModifyContactsWith(
         this Person person, 
