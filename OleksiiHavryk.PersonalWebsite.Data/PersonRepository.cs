@@ -24,6 +24,9 @@ public class PersonRepository : IPersonRepository
         try
         {
             var person = await _dbContext.Persons
+                .Include(p => p.Contacts)
+                .Include(p => p.Projects)
+                .Include(p => p.Resume)
                 .FirstOrDefaultAsync(p => p.Id == id);
         
             if (person is null)
@@ -74,6 +77,9 @@ public class PersonRepository : IPersonRepository
         try
         {
             var entity = await _dbContext.Persons
+                .Include(p => p.Contacts)
+                .Include(p => p.Projects)
+                .Include(p => p.Resume)
                 .FirstOrDefaultAsync(p => p.Id == person.Id);
 
             if (entity is null)
