@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite.Core", "OleksiiHavryk.PersonalWebsite.Core\OleksiiHavryk.PersonalWebsite.Core.csproj", "{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite.Tests", "OleksiiHavryk.PersonalWebsite.Tests\OleksiiHavryk.PersonalWebsite.Tests.csproj", "{F7CB383B-3F10-43EC-A8FC-5E024EF119B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7CB383B-3F10-43EC-A8FC-5E024EF119B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7CB383B-3F10-43EC-A8FC-5E024EF119B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7CB383B-3F10-43EC-A8FC-5E024EF119B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7CB383B-3F10-43EC-A8FC-5E024EF119B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
