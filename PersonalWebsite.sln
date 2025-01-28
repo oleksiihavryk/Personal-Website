@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite.Core", "OleksiiHavryk.PersonalWebsite.Core\OleksiiHavryk.PersonalWebsite.Core.csproj", "{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite.Tests", "OleksiiHavryk.PersonalWebsite.Tests\OleksiiHavryk.PersonalWebsite.Tests.csproj", "{8F246145-736E-41B3-A5F9-D78CBEF94057}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OleksiiHavryk.PersonalWebsite.Tests", "OleksiiHavryk.PersonalWebsite.Tests\OleksiiHavryk.PersonalWebsite.Tests.csproj", "{2F3DD7E0-7C35-4E7B-BF53-CA3BCAB833A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +32,9 @@ Global
 		{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AEE56EE-693E-47FC-9EDA-8EC459DCCFF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F246145-736E-41B3-A5F9-D78CBEF94057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F246145-736E-41B3-A5F9-D78CBEF94057}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F246145-736E-41B3-A5F9-D78CBEF94057}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F246145-736E-41B3-A5F9-D78CBEF94057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F3DD7E0-7C35-4E7B-BF53-CA3BCAB833A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F3DD7E0-7C35-4E7B-BF53-CA3BCAB833A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F3DD7E0-7C35-4E7B-BF53-CA3BCAB833A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F3DD7E0-7C35-4E7B-BF53-CA3BCAB833A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
