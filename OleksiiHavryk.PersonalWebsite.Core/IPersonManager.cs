@@ -9,7 +9,7 @@ namespace OleksiiHavryk.PersonalWebsite.Core;
 /// </summary>
 public interface IPersonManager
 {
-    Task SeedValueIfNotExistsAsync(PersonDto seed);
+    Task<Result> SeedValueIfNotExistsAsync(PersonDto seed);
     Task<Result<PersonDto>> GetAsync();
     Task<Result> UpdateAsync(PersonDto dto);
 }

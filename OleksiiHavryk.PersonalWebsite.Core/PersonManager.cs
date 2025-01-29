@@ -28,14 +28,16 @@ public class PersonManager : IPersonManager
         _personRepository = personRepository;
     }
 
-    public async Task SeedValueIfNotExistsAsync(PersonDto seed)
+    public async Task<Result> SeedValueIfNotExistsAsync(PersonDto seed)
     {
         if (await CheckIfPersonExistsAsync())
         {
             _logger.LogInformation(
                 $"Person is already contained with identifier '{Identifier}', " +
                 $"seeding is terminated.");
-            return;
+            
+            return Result.Failure()
+                .WithMessage("Seeding has been terminated.");
         }
         
         var person = new Person
@@ -100,6 +102,9 @@ public class PersonManager : IPersonManager
         }
         
         _logger.LogInformation("Person is successfully seeded.");
+        
+        return Result.Success()
+            .WithMessage("Value has been seeded successfully.");
     }
     public async Task<Result<PersonDto>> GetAsync()
     {
