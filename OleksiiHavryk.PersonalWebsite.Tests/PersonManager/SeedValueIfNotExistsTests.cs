@@ -7,13 +7,14 @@ using ResultNet;
 
 namespace OleksiiHavryk.PersonalWebsite.Tests.PersonManager;
 
-public class GetAsyncTests
+public class SeedValueIfNotExistsTests
 {
     [Fact]
-    public async Task GetAsync_ObjectIsContaining_RetrievingSucceeded()
+    public async Task SeedValueIfNotExists_ObjectIsContaining_SeedingTerminated()
     {
         //arrange
-        Person person = GeneratePerson();
+        Person person = new();
+        PersonDto seed = new();
         
         IPersonRepository repository = 
             Mock.Of<IPersonRepository>();
@@ -28,18 +29,19 @@ public class GetAsyncTests
         Core.PersonManager pm = new(logger, repository);
         //act
 
-        var result = await pm.GetAsync();
+        var result = await pm.SeedValueIfNotExistsAsync(seed);
 
         //assert
         Assert.NotNull(result);
-        Assert.True(result.IsSuccess());
-        Assert.NotNull(result.Data);
-        Assert.True(IfPersonIsIdentical(person, result.Data));
+        Assert.True(result.IsFailure());
     }
     [Fact]
-    public async Task GetAsync_ObjectIsNotContaining_RetrievingFailed()
+    public async Task SeedValueIfNotExists_ObjectIsNotContaining_SeedingProceeded()
     {
         //arrange
+        PersonDto seed = GenerateDto();
+        Person person = GeneratePerson();
+        
         IPersonRepository repository = 
             Mock.Of<IPersonRepository>();
         ILogger<Core.PersonManager> logger = 
@@ -49,16 +51,20 @@ public class GetAsyncTests
             .Setup(opt => opt.GetAsync(
                 It.IsAny<Guid>()))
             .ReturnsAsync(Result.Failure<Person>());
+        Mock.Get(repository)
+            .Setup(opt => opt.CreateAsync(
+                It.Is<Person>(
+                    p => IfPersonIsIdentical(p, seed))))
+            .ReturnsAsync(Result.Success(person));
         
         Core.PersonManager pm = new(logger, repository);
         //act
 
-        var result = await pm.GetAsync();
+        var result = await pm.SeedValueIfNotExistsAsync(seed);
 
         //assert
         Assert.NotNull(result);
-        Assert.True(result.IsFailure());
-        Assert.Null(result.Data);
+        Assert.True(result.IsSuccess());
     }
 
     private Person GeneratePerson() => new()
@@ -94,6 +100,41 @@ public class GetAsyncTests
                 {
                     Id = Guid.NewGuid(),
                     ProjectsId = Guid.NewGuid(),
+                    Name = "1",
+                    Description = "1",
+                    GithubUrl = "1",
+                    ImageUrl = "1",
+                    SiteUrl = "1",
+                    Show = true
+                }
+            ]
+        }
+    };
+    private PersonDto GenerateDto() => new()
+    {
+        Name = "1",
+        About = "1",
+        Contacts = new()
+        {
+            Email = "1",
+            Github = "1",
+            Gitlab = "1",
+            LinkedIn = "1",
+            Phone = "1",
+            Telegram = "1"
+        },
+        Resume = new()
+        {
+            DisplayName = "1",
+            FileName = "1",
+            Data = [0x0]
+        },
+        Projects = new()
+        {
+            Projects =
+            [
+                new()
+                {
                     Name = "1",
                     Description = "1",
                     GithubUrl = "1",
